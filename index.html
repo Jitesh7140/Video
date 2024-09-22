@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            color: rgb(255, 255, 255);
+        }
+
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* place-items: center; */
+            text-align: center;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            background-color: rgb(161 144 144 / 30%);
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -3;
+        }
+
+        h1 {
+            /* background-color: #1a1a2e; */
+
+            z-index: 4;
+        }
+
+        #btn {
+            font-size: larger;
+            background: none;
+            border: none;
+            background-color: rgb(205, 209, 211,0.4);
+            /* border: none; */
+            position: absolute;
+            bottom: 7%;
+            left: 7%;
+            width: 7rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+
+            align-items: center;
+            justify-content: space-around;
+            /* border: none; */
+
+        }
+
+        #btn span {
+            display: inline-block;
+            display: inline-block;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: capitalize;
+            /* color: var(--clr-primary-5); */
+
+        }
+
+        #swbtn {
+            display: block;
+            position: absolute;
+            background-color: aqua;
+            top: 0px;
+            left: 0%;
+            border-radius: 10%;
+            width: 50%;
+            cursor: pointer;
+            height: 100%;
+            transition: all 0.3s linear;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <video muted autoplay loop class="video-container">
+            <source class="video-container" src="./video.mp4" type="video/mp4" />
+        </video>
+        <h1>Video Project</h1>
+        <button id="btn">
+            <span>Play</span>
+            <span>Pause</span>
+            <span id="swbtn">
+
+            </span>
+        </button>
+    </header>
+
+    <script>
+
+        let btn = document.getElementById('btn');
+        let swbtn = document.getElementById('swbtn')
+        let video=document.querySelector('.video-container')
+
+        window.addEventListener('load',()=>{
+            btn.addEventListener('click', () => {
+                if (swbtn.style.left == '0%') {
+                    swbtn.style.left = '50%'
+                    
+                    video.pause()
+    
+                }
+                else if (swbtn.style.right = '50%') {
+                    swbtn.style.left = '0%'
+                    video.play()
+    
+                }
+            })
+            
+        })
+
+    </script>
+
+
+</body>
+
+</html>
